@@ -11,12 +11,16 @@ public class CommandHandler {
     }
 
     public void process(final Command command) {
-        try {
-            game.getGridState().process(command);
-            game.repaintGrid();
-            game.addText(command.getSuccessMessage());
-        } catch (IllegalCommandException e) {
-            game.addText("This is not allowed");
+        if (CommandType.REPORT.equals(command.getType())) {
+            game.addText(game.getGridState().buildReport());
+        } else {
+            try {
+                game.getGridState().process(command);
+                game.repaintGrid();
+                game.addText(command.getSuccessMessage());
+            } catch (IllegalCommandException e) {
+                game.addText("This is not allowed");
+            }
         }
     }
 

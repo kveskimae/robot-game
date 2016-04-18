@@ -6,7 +6,7 @@ import com.davidsonwp.robot.constants.Colors;
 import javax.swing.*;
 import java.awt.*;
 
-import static com.davidsonwp.robot.constants.Colors.GRID_BORDERS;
+import static com.davidsonwp.robot.constants.Colors.*;
 import static com.davidsonwp.robot.constants.Dimensions.*;
 
 public class GameGrid {
@@ -28,12 +28,61 @@ public class GameGrid {
         private void paintCell(final Graphics g, final int row, final int column) {
             int x = (column + 1) * GRID_PADDING + column * GRID_CELL_SIDE;
             int y = GRID_SIZE.height - ((row + 1) * GRID_PADDING + (row + 1) * GRID_CELL_SIDE);
-            Color cellColor = CellColorCalculator.getCellColor(row, column);
-            if (isRobotLocation(row, column)) {
+            Color cellColor;
+            boolean isRobotLocation = isRobotLocation(row, column);
+            if (isRobotLocation) {
                 cellColor = Colors.ROBOT_CELL;
+            } else {
+                cellColor = CellColorCalculator.getCellColor(row, column);
             }
             g.setColor(cellColor);
             g.fillRect(x, y, GRID_CELL_SIDE, GRID_CELL_SIDE);
+            if (isRobotLocation) {
+                g.setColor(ARROW_COLOR);
+                Polygon polygon = new Polygon();
+                int x1, y1, x2, y2, x3, y3;
+                int halfCell = GRID_CELL_SIDE / 2;
+                switch (starter.getGridState().getDirection()) {
+                    case NORTH:
+                    case SOUTH:
+                        x1 = x;
+                        x2 = x + GRID_CELL_SIDE;
+                        y1 = y2 = y + halfCell;
+                        break;
+                    case EAST:
+                    case WEST:
+                        y1 = y;
+                        y2 = y + GRID_CELL_SIDE;
+                        x1 = x2 = x + halfCell;
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unsupported direction: " + starter.getGridState().getDirection());
+                }
+                switch (starter.getGridState().getDirection()) {
+                    case NORTH:
+                        x3 = x + halfCell;
+                        y3 = y;
+                        break;
+                    case SOUTH:
+                        x3 = x + halfCell;
+                        y3 = y + GRID_CELL_SIDE;
+                        break;
+                    case EAST:
+                        x3 = x + GRID_CELL_SIDE;
+                        y3 = y + halfCell;
+                        break;
+                    case WEST:
+                        x3 = x;
+                        y3 = y + halfCell;
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unsupported direction: " + starter.getGridState().getDirection());
+                }
+                polygon.addPoint(x1, y1);
+                polygon.addPoint(x2, y2);
+                polygon.addPoint(x3, y3);
+                g.fillPolygon(polygon);
+            }
         }
 
         private void paintGridBackground(final Graphics g) {
@@ -61,7 +110,7 @@ public class GameGrid {
 
     public boolean isRobotLocation(final int row, final int column) {
         if (starter.getGridState().isPlaced()) {
-            if (starter.getGridState().getAbsoluteX().equals(row) && starter.getGridState().getAbsoluteY().equals(column)) {
+            if (starter.getGridState().calculateAbsoluteX().equals(row) && starter.getGridState().calculateAbsoluteY().equals(column)) {
                 return true;
             }
         }

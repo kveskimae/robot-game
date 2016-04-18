@@ -43,9 +43,6 @@ public class Starter {
 	}
 
 	public Starter() {
-		getGridState().setX(1);
-		getGridState().setY(1);
-		getGridState().setDirection(CardinalDirection.NORTH);
 		initGUIComponents();
 		getFrame().pack();
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
