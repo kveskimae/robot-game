@@ -1,6 +1,5 @@
 package com.davidsonwp.robot;
 
-import com.davidsonwp.robot.command.CardinalDirection;
 import com.davidsonwp.robot.command.CommandHandler;
 import com.davidsonwp.robot.graphics.MainPanel;
 import com.davidsonwp.robot.graphics.Menu;
@@ -59,13 +58,9 @@ public class Starter {
 			}
 		});
 		this.mainPanel = new MainPanel(this);
-		mainPanel.setGridVisible(false);
 		getFrame().getContentPane().add(mainPanel.getPanel(), java.awt.BorderLayout.CENTER);
 		menu = new Menu(this);
-		menu.setJoinsEnabled(false);
 		getFrame().setJMenuBar(menu);
-		mainPanel.setGridVisible(true);
-		menu.setJoinsEnabled(true);
 		addText("Place the robot");
 		this.frame.repaint();
 	}

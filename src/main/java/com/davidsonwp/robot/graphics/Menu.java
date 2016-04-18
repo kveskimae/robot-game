@@ -6,13 +6,9 @@ import javax.swing.*;
 
 public class Menu extends JMenuBar {
 
-    // MENU
     private JMenu fileMenu = new JMenu();
     private JMenuItem aboutMenuItem = new JMenuItem();
     private JMenuItem exitMenuItem = new JMenuItem();
-    private JMenuItem joinAsFrogMenuItem = new JMenuItem();
-    private JMenuItem joinAsFlyMenuItem = new JMenuItem();
-    private JMenuItem closeGameMenuItem = new JMenuItem();
     private final Starter game;
 
     public Menu(final Starter game) {
@@ -46,11 +42,5 @@ public class Menu extends JMenuBar {
         
         this.add(fileMenu);
     }
-
-	public void setJoinsEnabled(final boolean enabled) {
-	    joinAsFrogMenuItem.setEnabled(enabled);
-	    joinAsFlyMenuItem.setEnabled(enabled);
-	    closeGameMenuItem.setEnabled(enabled);
-	}
 
 }

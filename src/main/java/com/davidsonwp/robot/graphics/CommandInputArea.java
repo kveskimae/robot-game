@@ -16,11 +16,11 @@ public class CommandInputArea {
 	private final JPanel panel = new JPanel();
 	private final JLabel labelCommand = new JLabel("Command");
 	private final JTextField textCommand = new JTextField("PLACE 0,0,NORTH");
-	private JButton launchBtn = new JButton("Execute");
+	private JButton executeBtn = new JButton("Execute");
     
     public CommandInputArea(final Starter starter) {
     	panel.setLayout(new GridLayout(2, 2));
-    	launchBtn.addMouseListener(new MouseListener() {
+    	executeBtn.addMouseListener(new MouseListener() {
 			
 			@Override
 			public void mouseReleased(MouseEvent e) {
@@ -51,7 +51,7 @@ public class CommandInputArea {
     	panel.add(labelCommand);
     	panel.add(textCommand);
     	panel.add(new JPanel());
-    	panel.add(launchBtn);
+    	panel.add(executeBtn);
         configureDimensions();
         panel.revalidate();
     }
@@ -66,12 +66,5 @@ public class CommandInputArea {
         panel.setMaximumSize(Dimensions.COMMAND_INPUT_SIZE);
         panel.setPreferredSize(Dimensions.COMMAND_INPUT_SIZE);
     }
-
-	public void disable() {
-		textCommand.setEnabled(false);
-		textCommand.setFocusable(false);
-		launchBtn.setEnabled(false);
-		launchBtn.setFocusable(false);
-	}
 
 }

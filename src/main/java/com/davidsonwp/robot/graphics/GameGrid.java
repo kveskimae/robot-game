@@ -6,7 +6,8 @@ import com.davidsonwp.robot.constants.Colors;
 import javax.swing.*;
 import java.awt.*;
 
-import static com.davidsonwp.robot.constants.Colors.*;
+import static com.davidsonwp.robot.constants.Colors.ARROW_COLOR;
+import static com.davidsonwp.robot.constants.Colors.GRID_BORDERS;
 import static com.davidsonwp.robot.constants.Dimensions.*;
 
 public class GameGrid {

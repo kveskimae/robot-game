@@ -1,10 +1,5 @@
 package com.davidsonwp.robot.command;
 
-import java.text.ParseException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.regex.Pattern;
-
 /**
  * Created by kristjanveskimae on 18/04/16.
  */

@@ -60,9 +60,5 @@ public class Feedback {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new Insets(Dimensions.FEEDBACK_PANEL_INSET_TOP, 0, 0, 0);
     }
-
-	public void repaint() {
-		panel.repaint();
-	}
     
 }
