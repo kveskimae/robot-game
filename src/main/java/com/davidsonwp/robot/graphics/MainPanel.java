@@ -70,5 +70,8 @@ public class MainPanel {
 		// getPanel().add(connectionParameters.getPanel());
 		getPanel().revalidate();
 	}
-    
+
+    public GameGrid getGrid() {
+        return grid;
+    }
 }

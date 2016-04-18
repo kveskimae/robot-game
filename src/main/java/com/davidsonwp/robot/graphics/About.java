@@ -78,8 +78,8 @@ public class About extends JDialog {
         copyrightTextArea.setLineWrap(true);
         copyrightTextArea.setRows(8);
         copyrightTextArea.setText("Toy Robot\n\n" +
-                "Available commands:\n\n" +
-                "    PLACE X,Y,F\n" +
+                "Examples of available commands:\n\n" +
+                "    PLACE 1,2,SOUTH\n" +
                 "    MOVE\n" +
                 "    LEFT\n" +
                 "    RIGHT\n" +

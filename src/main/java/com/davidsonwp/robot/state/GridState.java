@@ -1,9 +1,11 @@
 package com.davidsonwp.robot.state;
 
 import com.davidsonwp.robot.command.CardinalDirection;
+import com.davidsonwp.robot.command.Command;
+import com.davidsonwp.robot.command.IllegalCommandException;
+import com.davidsonwp.robot.command.PlaceCommand;
 
-import static com.davidsonwp.robot.constants.Dimensions.TABLE_COLS_START;
-import static com.davidsonwp.robot.constants.Dimensions.TABLE_ROWS_START;
+import static com.davidsonwp.robot.constants.Dimensions.*;
 
 /**
  * Created by kristjanveskimae on 18/04/16.
@@ -53,4 +55,20 @@ public class GridState {
 		return TABLE_COLS_START + getRelativeY();
 	}
 
+	public void process(final Command command) throws IllegalCommandException {
+		switch (command.getType()) {
+			case PLACE:
+				PlaceCommand placeCommand = (PlaceCommand) command;
+				if (placeCommand.getX() >= 0 && placeCommand.getX() < TABLE_ROWS && placeCommand.getY() >= 0 && placeCommand.getY() < TABLE_COLS) {
+					setX(placeCommand.getX());
+					setY(placeCommand.getY());
+					setDirection(placeCommand.getDirection());
+				} else {
+					throw new IllegalCommandException();
+				}
+				break;
+			default:
+				throw new IllegalArgumentException("Unsupported command type: " + command.getType());
+		}
+	}
 }

@@ -73,6 +73,10 @@ public class Starter {
 		this.frame.repaint();
 	}
 
+	public void repaintGrid() {
+		mainPanel.getGrid().getPanel().repaint();
+	}
+
 	public void addText(final String msg) {
 		mainPanel.getFeedbackLabel().addText(msg);
 	}

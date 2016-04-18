@@ -11,10 +11,12 @@ public class CommandHandler {
     }
 
     public void process(final Command command) {
-        switch (command.getType()) {
-            case MOVE:
-            default:
-                throw new IllegalArgumentException("Unkown command type: " + command.getType());
+        try {
+            game.getGridState().process(command);
+            game.repaintGrid();
+            game.addText(command.getSuccessMessage());
+        } catch (IllegalCommandException e) {
+            game.addText("This is not allowed");
         }
     }
 

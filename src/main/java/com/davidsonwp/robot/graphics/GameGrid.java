@@ -27,7 +27,7 @@ public class GameGrid {
 
         private void paintCell(final Graphics g, final int row, final int column) {
             int x = (column + 1) * GRID_PADDING + column * GRID_CELL_SIDE;
-            int y = (row + 1) * GRID_PADDING + row * GRID_CELL_SIDE;
+            int y = GRID_SIZE.height - ((row + 1) * GRID_PADDING + (row + 1) * GRID_CELL_SIDE);
             Color cellColor = CellColorCalculator.getCellColor(row, column);
             if (isRobotLocation(row, column)) {
                 cellColor = Colors.ROBOT_CELL;
