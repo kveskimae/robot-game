@@ -2,6 +2,7 @@ package com.davidsonwp.robot.graphics;
 
 import com.davidsonwp.robot.Starter;
 import com.davidsonwp.robot.command.Command;
+import com.davidsonwp.robot.command.CommandParser;
 import com.davidsonwp.robot.constants.Dimensions;
 
 import javax.swing.*;
@@ -13,8 +14,8 @@ import java.text.ParseException;
 public class CommandInputArea {
 	
 	private final JPanel panel = new JPanel();
-	private final JLabel rmiRegistryLocationLabel = new JLabel("Command");
-	private final JTextField rmiRegistryLocation = new JTextField("PLACE 0,0,NORTH");
+	private final JLabel labelCommand = new JLabel("Command");
+	private final JTextField textCommand = new JTextField("PLACE 0,0,NORTH");
 	private JButton launchBtn = new JButton("Execute");
     
     public CommandInputArea(final Starter starter) {
@@ -40,15 +41,15 @@ public class CommandInputArea {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
-					Command command = Command.parseCommand(rmiRegistryLocation.getText());
+					Command command = CommandParser.parseCommand(textCommand.getText());
 					starter.getHandler().process(command);
 				} catch (final ParseException pe) {
 					starter.addText("Invalid command string");
 				}
 			}
 		});
-    	panel.add(rmiRegistryLocationLabel);
-    	panel.add(rmiRegistryLocation);
+    	panel.add(labelCommand);
+    	panel.add(textCommand);
     	panel.add(new JPanel());
     	panel.add(launchBtn);
         configureDimensions();
@@ -67,8 +68,8 @@ public class CommandInputArea {
     }
 
 	public void disable() {
-		rmiRegistryLocation.setEnabled(false);
-		rmiRegistryLocation.setFocusable(false);
+		textCommand.setEnabled(false);
+		textCommand.setFocusable(false);
 		launchBtn.setEnabled(false);
 		launchBtn.setFocusable(false);
 	}

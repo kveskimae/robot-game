@@ -1,8 +1,10 @@
 package com.davidsonwp.robot;
 
+import com.davidsonwp.robot.command.CardinalDirection;
 import com.davidsonwp.robot.command.CommandHandler;
 import com.davidsonwp.robot.graphics.MainPanel;
 import com.davidsonwp.robot.graphics.Menu;
+import com.davidsonwp.robot.state.GridState;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,9 +19,7 @@ public class Starter {
 
 	private CommandHandler handler;
 
-	public CommandHandler getHandler() {
-		return handler;
-	}
+	private GridState gridState = new GridState();
 
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
@@ -30,11 +30,22 @@ public class Starter {
 		});
 	}
 
+	public GridState getGridState() {
+		return gridState;
+	}
+
+	public CommandHandler getHandler() {
+		return handler;
+	}
+
 	public JFrame getFrame() {
 		return frame;
 	}
 
 	public Starter() {
+		getGridState().setX(1);
+		getGridState().setY(1);
+		getGridState().setDirection(CardinalDirection.NORTH);
 		initGUIComponents();
 		getFrame().pack();
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -64,9 +75,6 @@ public class Starter {
 
 	public void addText(final String msg) {
 		mainPanel.getFeedbackLabel().addText(msg);
-	}
-
-	public void startServer(final String host) {
 	}
 
 }

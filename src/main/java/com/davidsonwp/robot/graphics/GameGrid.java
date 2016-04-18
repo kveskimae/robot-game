@@ -1,5 +1,8 @@
 package com.davidsonwp.robot.graphics;
 
+import com.davidsonwp.robot.Starter;
+import com.davidsonwp.robot.constants.Colors;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -7,6 +10,8 @@ import static com.davidsonwp.robot.constants.Colors.GRID_BORDERS;
 import static com.davidsonwp.robot.constants.Dimensions.*;
 
 public class GameGrid {
+
+    private final Starter starter;
 
     private JPanel panel = new JPanel() {
 
@@ -24,6 +29,9 @@ public class GameGrid {
             int x = (column + 1) * GRID_PADDING + column * GRID_CELL_SIDE;
             int y = (row + 1) * GRID_PADDING + row * GRID_CELL_SIDE;
             Color cellColor = CellColorCalculator.getCellColor(row, column);
+            if (isRobotLocation(row, column)) {
+                cellColor = Colors.ROBOT_CELL;
+            }
             g.setColor(cellColor);
             g.fillRect(x, y, GRID_CELL_SIDE, GRID_CELL_SIDE);
         }
@@ -32,11 +40,11 @@ public class GameGrid {
             g.setColor(GRID_BORDERS);
             g.fillRect(0, 0, GRID_SIZE.width, GRID_SIZE.height);
         }
-    };
-    private final MainPanel mainPanel;
 
-    public GameGrid(final MainPanel mainPanel) {
-        this.mainPanel = mainPanel;
+    };
+
+    public GameGrid(final Starter starter) {
+        this.starter = starter;
         setSize();
     }
 
@@ -51,4 +59,12 @@ public class GameGrid {
         return panel;
     }
 
+    public boolean isRobotLocation(final int row, final int column) {
+        if (starter.getGridState().isPlaced()) {
+            if (starter.getGridState().getAbsoluteX().equals(row) && starter.getGridState().getAbsoluteY().equals(column)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

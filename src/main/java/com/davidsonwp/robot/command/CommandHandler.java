@@ -12,6 +12,7 @@ public class CommandHandler {
 
     public void process(final Command command) {
         switch (command.getType()) {
+            case MOVE:
             default:
                 throw new IllegalArgumentException("Unkown command type: " + command.getType());
         }

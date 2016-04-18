@@ -21,7 +21,7 @@ public class MainPanel {
         panel.setLayout(new GridBagLayout());
         configureDimensions();
         panel.setBackground(MAIN_PANEL);
-        grid = new GameGrid(this);
+        grid = new GameGrid(game);
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         // gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
         gridBagConstraints.gridx = 0;
