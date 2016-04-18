@@ -1,11 +1,10 @@
 package com.davidsonwp.robot.graphics;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 
+import static com.davidsonwp.robot.constants.Colors.GRID_BORDERS;
 import static com.davidsonwp.robot.constants.Dimensions.*;
-import static com.davidsonwp.robot.constants.Colors.*;
 
 public class GameGrid {
 

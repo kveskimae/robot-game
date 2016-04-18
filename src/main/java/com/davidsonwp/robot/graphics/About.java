@@ -31,12 +31,8 @@
 
 package com.davidsonwp.robot.graphics;
 
-import java.awt.Dimension;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.event.ActionListener;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * About dialog of the Anagram Game application.

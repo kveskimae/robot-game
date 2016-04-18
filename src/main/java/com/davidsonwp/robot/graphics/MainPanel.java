@@ -1,11 +1,10 @@
 package com.davidsonwp.robot.graphics;
 
 import com.davidsonwp.robot.Starter;
-import com.davidsonwp.robot.command.CommandHandler;
 import com.davidsonwp.robot.constants.Dimensions;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 
 import static com.davidsonwp.robot.constants.Colors.MAIN_PANEL;
 

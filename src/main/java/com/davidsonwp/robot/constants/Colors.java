@@ -1,6 +1,6 @@
 package com.davidsonwp.robot.constants;
 
-import java.awt.Color;
+import java.awt.*;
 
 public interface Colors {
 

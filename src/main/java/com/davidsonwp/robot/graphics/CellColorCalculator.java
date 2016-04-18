@@ -1,9 +1,9 @@
 package com.davidsonwp.robot.graphics;
 
-import com.davidsonwp.robot.constants.Dimensions;
 import com.davidsonwp.robot.constants.Colors;
+import com.davidsonwp.robot.constants.Dimensions;
 
-import java.awt.Color;
+import java.awt.*;
 
 public class CellColorCalculator {
 

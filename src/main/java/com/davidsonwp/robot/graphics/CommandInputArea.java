@@ -1,18 +1,14 @@
 package com.davidsonwp.robot.graphics;
 
-import java.awt.GridLayout;
+import com.davidsonwp.robot.Starter;
+import com.davidsonwp.robot.command.Command;
+import com.davidsonwp.robot.constants.Dimensions;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.text.ParseException;
-
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
-import com.davidsonwp.robot.Starter;
-import com.davidsonwp.robot.constants.Dimensions;
-import com.davidsonwp.robot.command.Command;
 
 public class CommandInputArea {
 	

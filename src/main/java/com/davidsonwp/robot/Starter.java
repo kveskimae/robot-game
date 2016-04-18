@@ -1,8 +1,8 @@
 package com.davidsonwp.robot;
 
+import com.davidsonwp.robot.command.CommandHandler;
 import com.davidsonwp.robot.graphics.MainPanel;
 import com.davidsonwp.robot.graphics.Menu;
-import com.davidsonwp.robot.command.CommandHandler;
 
 import javax.swing.*;
 import java.awt.*;

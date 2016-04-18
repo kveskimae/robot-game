@@ -2,14 +2,8 @@ package com.davidsonwp.robot.graphics;
 
 import com.davidsonwp.robot.constants.Dimensions;
 
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import java.awt.Point;
-import java.awt.Rectangle;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.ScrollPaneConstants;
+import javax.swing.*;
+import java.awt.*;
 
 public class Feedback {
     

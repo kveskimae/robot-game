@@ -1,7 +1,7 @@
 package com.davidsonwp.robot.constants;
 
 
-import java.awt.Dimension;
+import java.awt.*;
 
 public interface Dimensions {
 
